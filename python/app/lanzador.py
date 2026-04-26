@@ -38,5 +38,11 @@ class Lanzador:
         self._historico.resetear()
 
     def resetear_todo(self) -> None:
-        """Resetea el historico (punto de extension para futura configuracion)."""
+        """
+        Resetea todos los datos gestionados por el servicio (actualmente el historico).
+
+        La configuracion de la tirada (cantidad y lados) es responsabilidad de la
+        capa de vista y se resetea desde ahi. Este metodo centraliza el reseteo de
+        la capa de datos para el caso del reseteo global.
+        """
         self._historico.resetear()
