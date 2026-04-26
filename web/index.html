@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lanzador de Dados Warhammer 40K</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div id="app">
+
+    <header>
+      <h1>&#x2694; Lanzador de Dados W40K &#x2694;</h1>
+    </header>
+
+    <!-- Configuracion de tirada -->
+    <section class="panel" id="panel-configuracion">
+      <h2 class="panel-titulo">Configuracion de tirada</h2>
+      <div class="fila-config">
+        <div class="campo-grupo">
+          <label for="cantidad">Cantidad de dados</label>
+          <input type="number" id="cantidad" min="1" max="100" value="1" />
+        </div>
+        <div class="campo-grupo">
+          <label for="lados">Lados por dado</label>
+          <input type="number" id="lados" min="2" max="100" value="6" />
+        </div>
+        <span id="tipo-dado" class="tipo-dado-badge">1d6</span>
+      </div>
+    </section>
+
+    <!-- Botones de accion -->
+    <section id="panel-botones">
+      <button id="btn-lanzar" class="btn btn-primario">&#x1F3B2; Lanzar dados</button>
+      <button id="btn-reset-historico" class="btn btn-secundario">Resetear historico</button>
+      <button id="btn-reset-global" class="btn btn-secundario">Reseteo global</button>
+      <button id="btn-cerrar" class="btn btn-cerrar">Cerrar</button>
+    </section>
+
+    <!-- Animacion (oculta por defecto) -->
+    <section id="panel-animacion" class="panel oculto">
+      <div id="contenedor-dados"></div>
+      <p id="texto-tirando">Tirando...</p>
+    </section>
+
+    <!-- Resultados -->
+    <section class="panel" id="panel-resultados">
+      <h2 class="panel-titulo">Resultado de la tirada</h2>
+      <p id="resultado-total" class="resultado-total">Sin tirar</p>
+      <p id="resultado-detalle" class="resultado-detalle"></p>
+    </section>
+
+    <!-- Historico -->
+    <section class="panel" id="panel-historico">
+      <h2 class="panel-titulo">Historico de tiradas</h2>
+      <div id="lista-historico" class="lista-historico">
+        <p class="historico-vacio">Aun no se han realizado tiradas.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

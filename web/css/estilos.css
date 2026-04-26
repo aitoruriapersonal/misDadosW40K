@@ -1,0 +1,337 @@
+/* estilos.css - Tema oscuro Warhammer 40K */
+
+/* ===== Reset y base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #1a1a2e;
+  --color-fondo-panel: #16213e;
+  --color-fondo-oscuro: #0d1b2a;
+  --color-acento: #c0a060;
+  --color-acento-brillo: #e0c080;
+  --color-texto: #e0e0e0;
+  --color-texto-tenue: #a0a0c0;
+  --color-borde: #3a3a5e;
+  --color-btn-primario: #8b0000;
+  --color-btn-primario-hover: #cc0000;
+  --color-btn-secundario: #2a2a5e;
+  --color-btn-secundario-hover: #4a4a8e;
+  --color-btn-cerrar: #4a1010;
+  --color-btn-cerrar-hover: #7a2020;
+  --color-dado-fondo: #f5e6c8;
+  --color-dado-punto: #2c1810;
+  --color-dado-borde: #8b6020;
+  --color-historico-texto: #a0c0a0;
+  --radio-borde: 8px;
+  --sombra: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* ===== Contenedor principal ===== */
+#app {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== Cabecera ===== */
+header h1 {
+  text-align: center;
+  color: var(--color-acento);
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(192, 160, 96, 0.4);
+  padding: 8px 0;
+  border-bottom: 2px solid var(--color-acento);
+  margin-bottom: 4px;
+}
+
+/* ===== Paneles ===== */
+.panel {
+  background: var(--color-fondo-panel);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: 14px 16px;
+  box-shadow: var(--sombra);
+}
+
+.panel-titulo {
+  color: var(--color-acento);
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* ===== Configuracion ===== */
+.fila-config {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo-grupo label {
+  font-size: 0.82rem;
+  color: var(--color-texto-tenue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campo-grupo input[type="number"] {
+  width: 90px;
+  padding: 6px 10px;
+  background: var(--color-fondo-oscuro);
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  color: var(--color-texto);
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.campo-grupo input[type="number"]:focus {
+  border-color: var(--color-acento);
+}
+
+.tipo-dado-badge {
+  background: var(--color-fondo-oscuro);
+  color: var(--color-acento);
+  border: 1px solid var(--color-acento);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+/* ===== Botones ===== */
+#panel-botones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primario {
+  background: var(--color-btn-primario);
+  color: white;
+  font-size: 1rem;
+  padding: 10px 22px;
+}
+
+.btn-primario:hover:not(:disabled) {
+  background: var(--color-btn-primario-hover);
+}
+
+.btn-secundario {
+  background: var(--color-btn-secundario);
+  color: var(--color-texto);
+}
+
+.btn-secundario:hover:not(:disabled) {
+  background: var(--color-btn-secundario-hover);
+}
+
+.btn-cerrar {
+  background: var(--color-btn-cerrar);
+  color: white;
+  margin-left: auto;
+}
+
+.btn-cerrar:hover {
+  background: var(--color-btn-cerrar-hover);
+}
+
+/* ===== Panel animacion ===== */
+#panel-animacion {
+  text-align: center;
+  background: var(--color-fondo-oscuro);
+  border-color: var(--color-acento);
+}
+
+#contenedor-dados {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-height: 90px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+#texto-tirando {
+  color: var(--color-acento);
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 6px;
+  min-height: 1.4em;
+}
+
+/* ===== Dado (elemento HTML/CSS) ===== */
+.dado {
+  width: 72px;
+  height: 72px;
+  background: var(--color-dado-fondo);
+  border: 3px solid var(--color-dado-borde);
+  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease-in-out;
+}
+
+.dado.animando {
+  animation: sacudir 0.5s ease-in-out;
+}
+
+@keyframes sacudir {
+  0%   { transform: rotate(-8deg) scale(0.9); }
+  30%  { transform: rotate(8deg) scale(1.05); }
+  60%  { transform: rotate(-4deg) scale(0.95); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Punto de dado */
+.punto {
+  width: 12px;
+  height: 12px;
+  background: var(--color-dado-punto);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+/* Numero en dado no d6 */
+.dado-numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--color-dado-punto);
+  font-family: 'Georgia', serif;
+}
+
+/* ===== Resultados ===== */
+.resultado-total {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-acento-brillo);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.resultado-detalle {
+  font-size: 0.9rem;
+  color: var(--color-texto-tenue);
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== Historico ===== */
+.lista-historico {
+  background: var(--color-fondo-oscuro);
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-borde) transparent;
+}
+
+.lista-historico::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lista-historico::-webkit-scrollbar-thumb {
+  background: var(--color-borde);
+  border-radius: 3px;
+}
+
+.entrada-historico {
+  color: var(--color-historico-texto);
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.entrada-historico:last-child {
+  border-bottom: none;
+}
+
+.historico-vacio {
+  color: var(--color-texto-tenue);
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 4px;
+}
+
+/* ===== Utilidades ===== */
+.oculto {
+  display: none !important;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .btn-primario {
+    width: 100%;
+  }
+
+  #panel-botones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-cerrar {
+    margin-left: 0;
+  }
+}
